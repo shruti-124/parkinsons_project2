@@ -3,124 +3,72 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "515da578",
-   "metadata": {
-    "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
-    "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
-    "execution": {
-     "iopub.execute_input": "2024-07-03T17:22:57.981077Z",
-     "iopub.status.busy": "2024-07-03T17:22:57.980600Z",
-     "iopub.status.idle": "2024-07-03T17:22:58.988582Z",
-     "shell.execute_reply": "2024-07-03T17:22:58.987265Z"
-    },
-    "jupyter": {
-     "source_hidden": true
-    },
-    "papermill": {
-     "duration": 1.01778,
-     "end_time": "2024-07-03T17:22:58.991493",
-     "exception": false,
-     "start_time": "2024-07-03T17:22:57.973713",
-     "status": "completed"
-    },
-    "tags": []
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "/kaggle/input/parkinsons-dataset/Day14_Parkinsons_Disease_Data.csv\n"
-     ]
-    }
-   ],
-   "source": [
-    "# This Python 3 environment comes with many helpful analytics libraries installed\n",
-    "# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python\n",
-    "# For example, here's several helpful packages to load\n",
-    "\n",
-    "import numpy as np # linear algebra\n",
-    "import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)\n",
-    "\n",
-    "# Input data files are available in the read-only \"../input/\" directory\n",
-    "# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory\n",
-    "\n",
-    "import os\n",
-    "for dirname, _, filenames in os.walk('/kaggle/input'):\n",
-    "    for filename in filenames:\n",
-    "        print(os.path.join(dirname, filename))\n",
-    "\n",
-    "# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using \"Save & Run All\" \n",
-    "# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "d6cff607",
+   "id": "b195bbd2",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-07-03T17:22:59.003091Z",
-     "iopub.status.busy": "2024-07-03T17:22:59.002501Z",
-     "iopub.status.idle": "2024-07-03T17:22:59.008214Z",
-     "shell.execute_reply": "2024-07-03T17:22:59.007079Z"
+     "iopub.execute_input": "2024-07-03T17:36:53.411188Z",
+     "iopub.status.busy": "2024-07-03T17:36:53.410768Z",
+     "iopub.status.idle": "2024-07-03T17:36:54.440366Z",
+     "shell.execute_reply": "2024-07-03T17:36:54.439122Z"
     },
     "papermill": {
-     "duration": 0.015327,
-     "end_time": "2024-07-03T17:22:59.011590",
+     "duration": 1.042643,
+     "end_time": "2024-07-03T17:36:54.443412",
      "exception": false,
-     "start_time": "2024-07-03T17:22:58.996263",
+     "start_time": "2024-07-03T17:36:53.400769",
      "status": "completed"
     },
     "tags": []
    },
    "outputs": [],
    "source": [
+    "#getting system ready\n",
     "import numpy as np\n",
     "import pandas as pd\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
-   "id": "402359b1",
+   "execution_count": 2,
+   "id": "349babe4",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-07-03T17:22:59.023021Z",
-     "iopub.status.busy": "2024-07-03T17:22:59.022613Z",
-     "iopub.status.idle": "2024-07-03T17:22:59.056551Z",
-     "shell.execute_reply": "2024-07-03T17:22:59.055211Z"
+     "iopub.execute_input": "2024-07-03T17:36:54.461171Z",
+     "iopub.status.busy": "2024-07-03T17:36:54.460578Z",
+     "iopub.status.idle": "2024-07-03T17:36:54.484538Z",
+     "shell.execute_reply": "2024-07-03T17:36:54.483499Z"
     },
     "papermill": {
-     "duration": 0.04371,
-     "end_time": "2024-07-03T17:22:59.060139",
+     "duration": 0.036067,
+     "end_time": "2024-07-03T17:36:54.487324",
      "exception": false,
-     "start_time": "2024-07-03T17:22:59.016429",
+     "start_time": "2024-07-03T17:36:54.451257",
      "status": "completed"
     },
     "tags": []
    },
    "outputs": [],
    "source": [
+    "#importing dataset\n",
     "df=pd.read_csv(\"/kaggle/input/parkinsons-dataset/Day14_Parkinsons_Disease_Data.csv\")"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
-   "id": "82e0d479",
+   "execution_count": 3,
+   "id": "d09cccf1",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-07-03T17:22:59.070964Z",
-     "iopub.status.busy": "2024-07-03T17:22:59.070540Z",
-     "iopub.status.idle": "2024-07-03T17:22:59.128127Z",
-     "shell.execute_reply": "2024-07-03T17:22:59.126801Z"
+     "iopub.execute_input": "2024-07-03T17:36:54.503787Z",
+     "iopub.status.busy": "2024-07-03T17:36:54.503386Z",
+     "iopub.status.idle": "2024-07-03T17:36:54.560397Z",
+     "shell.execute_reply": "2024-07-03T17:36:54.559225Z"
     },
     "papermill": {
-     "duration": 0.06621,
-     "end_time": "2024-07-03T17:22:59.130903",
+     "duration": 0.06826,
+     "end_time": "2024-07-03T17:36:54.563017",
      "exception": false,
-     "start_time": "2024-07-03T17:22:59.064693",
+     "start_time": "2024-07-03T17:36:54.494757",
      "status": "completed"
     },
     "tags": []
@@ -496,7 +444,7 @@
        "[195 rows x 24 columns]"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 3,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -507,20 +455,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
-   "id": "e8db2458",
+   "execution_count": 4,
+   "id": "353a5073",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-07-03T17:22:59.143828Z",
-     "iopub.status.busy": "2024-07-03T17:22:59.143412Z",
-     "iopub.status.idle": "2024-07-03T17:23:00.934871Z",
-     "shell.execute_reply": "2024-07-03T17:23:00.933552Z"
+     "iopub.execute_input": "2024-07-03T17:36:54.581250Z",
+     "iopub.status.busy": "2024-07-03T17:36:54.580827Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.386292Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.384982Z"
     },
     "papermill": {
-     "duration": 1.8027,
-     "end_time": "2024-07-03T17:23:00.939238",
+     "duration": 1.817978,
+     "end_time": "2024-07-03T17:36:56.389333",
      "exception": false,
-     "start_time": "2024-07-03T17:22:59.136538",
+     "start_time": "2024-07-03T17:36:54.571355",
      "status": "completed"
     },
     "tags": []
@@ -539,20 +487,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
-   "id": "49ff8cc1",
+   "execution_count": 5,
+   "id": "02a93882",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-07-03T17:23:00.954994Z",
-     "iopub.status.busy": "2024-07-03T17:23:00.954503Z",
-     "iopub.status.idle": "2024-07-03T17:23:00.961886Z",
-     "shell.execute_reply": "2024-07-03T17:23:00.960189Z"
+     "iopub.execute_input": "2024-07-03T17:36:56.407274Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.406860Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.413065Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.411902Z"
     },
     "papermill": {
-     "duration": 0.019236,
-     "end_time": "2024-07-03T17:23:00.965445",
+     "duration": 0.018244,
+     "end_time": "2024-07-03T17:36:56.415910",
      "exception": false,
-     "start_time": "2024-07-03T17:23:00.946209",
+     "start_time": "2024-07-03T17:36:56.397666",
      "status": "completed"
     },
     "tags": []
@@ -574,20 +522,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
-   "id": "0a3348c1",
+   "execution_count": 6,
+   "id": "2f17bbc6",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-07-03T17:23:00.978177Z",
-     "iopub.status.busy": "2024-07-03T17:23:00.977699Z",
-     "iopub.status.idle": "2024-07-03T17:23:01.007262Z",
-     "shell.execute_reply": "2024-07-03T17:23:01.005398Z"
+     "iopub.execute_input": "2024-07-03T17:36:56.434313Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.433862Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.459331Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.458131Z"
     },
     "papermill": {
-     "duration": 0.041324,
-     "end_time": "2024-07-03T17:23:01.012000",
+     "duration": 0.037295,
+     "end_time": "2024-07-03T17:36:56.461915",
      "exception": false,
-     "start_time": "2024-07-03T17:23:00.970676",
+     "start_time": "2024-07-03T17:36:56.424620",
      "status": "completed"
     },
     "tags": []
@@ -637,20 +585,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
-   "id": "8576128b",
+   "execution_count": 7,
+   "id": "ce241e30",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-07-03T17:23:01.025477Z",
-     "iopub.status.busy": "2024-07-03T17:23:01.024877Z",
-     "iopub.status.idle": "2024-07-03T17:23:01.039761Z",
-     "shell.execute_reply": "2024-07-03T17:23:01.036909Z"
+     "iopub.execute_input": "2024-07-03T17:36:56.480577Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.480157Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.488907Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.487469Z"
     },
     "papermill": {
-     "duration": 0.025906,
-     "end_time": "2024-07-03T17:23:01.043631",
+     "duration": 0.021039,
+     "end_time": "2024-07-03T17:36:56.491469",
      "exception": false,
-     "start_time": "2024-07-03T17:23:01.017725",
+     "start_time": "2024-07-03T17:36:56.470430",
      "status": "completed"
     },
     "tags": []
@@ -678,14 +626,1224 @@
   },
   {
    "cell_type": "code",
+   "execution_count": 8,
+   "id": "67738a88",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.510260Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.509815Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.589772Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.588341Z"
+    },
+    "papermill": {
+     "duration": 0.092166,
+     "end_time": "2024-07-03T17:36:56.592297",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.500131",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Summary Statistics of numerical features for DataFrame are as follows:\n",
+      "**********************************************************************\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>MDVP:Fo(Hz)</th>\n",
+       "      <th>MDVP:Fhi(Hz)</th>\n",
+       "      <th>MDVP:Flo(Hz)</th>\n",
+       "      <th>MDVP:Jitter(%)</th>\n",
+       "      <th>MDVP:Jitter(Abs)</th>\n",
+       "      <th>MDVP:RAP</th>\n",
+       "      <th>MDVP:PPQ</th>\n",
+       "      <th>Jitter:DDP</th>\n",
+       "      <th>MDVP:Shimmer</th>\n",
+       "      <th>MDVP:Shimmer(dB)</th>\n",
+       "      <th>...</th>\n",
+       "      <th>Shimmer:DDA</th>\n",
+       "      <th>NHR</th>\n",
+       "      <th>HNR</th>\n",
+       "      <th>status</th>\n",
+       "      <th>RPDE</th>\n",
+       "      <th>DFA</th>\n",
+       "      <th>spread1</th>\n",
+       "      <th>spread2</th>\n",
+       "      <th>D2</th>\n",
+       "      <th>PPE</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>count</th>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>...</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "      <td>195.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>mean</th>\n",
+       "      <td>154.228641</td>\n",
+       "      <td>197.104918</td>\n",
+       "      <td>116.324631</td>\n",
+       "      <td>0.006220</td>\n",
+       "      <td>0.000044</td>\n",
+       "      <td>0.003306</td>\n",
+       "      <td>0.003446</td>\n",
+       "      <td>0.009920</td>\n",
+       "      <td>0.029709</td>\n",
+       "      <td>0.282251</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.046993</td>\n",
+       "      <td>0.024847</td>\n",
+       "      <td>21.885974</td>\n",
+       "      <td>0.753846</td>\n",
+       "      <td>0.498536</td>\n",
+       "      <td>0.718099</td>\n",
+       "      <td>-5.684397</td>\n",
+       "      <td>0.226510</td>\n",
+       "      <td>2.381826</td>\n",
+       "      <td>0.206552</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>std</th>\n",
+       "      <td>41.390065</td>\n",
+       "      <td>91.491548</td>\n",
+       "      <td>43.521413</td>\n",
+       "      <td>0.004848</td>\n",
+       "      <td>0.000035</td>\n",
+       "      <td>0.002968</td>\n",
+       "      <td>0.002759</td>\n",
+       "      <td>0.008903</td>\n",
+       "      <td>0.018857</td>\n",
+       "      <td>0.194877</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.030459</td>\n",
+       "      <td>0.040418</td>\n",
+       "      <td>4.425764</td>\n",
+       "      <td>0.431878</td>\n",
+       "      <td>0.103942</td>\n",
+       "      <td>0.055336</td>\n",
+       "      <td>1.090208</td>\n",
+       "      <td>0.083406</td>\n",
+       "      <td>0.382799</td>\n",
+       "      <td>0.090119</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>min</th>\n",
+       "      <td>88.333000</td>\n",
+       "      <td>102.145000</td>\n",
+       "      <td>65.476000</td>\n",
+       "      <td>0.001680</td>\n",
+       "      <td>0.000007</td>\n",
+       "      <td>0.000680</td>\n",
+       "      <td>0.000920</td>\n",
+       "      <td>0.002040</td>\n",
+       "      <td>0.009540</td>\n",
+       "      <td>0.085000</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.013640</td>\n",
+       "      <td>0.000650</td>\n",
+       "      <td>8.441000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.256570</td>\n",
+       "      <td>0.574282</td>\n",
+       "      <td>-7.964984</td>\n",
+       "      <td>0.006274</td>\n",
+       "      <td>1.423287</td>\n",
+       "      <td>0.044539</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>25%</th>\n",
+       "      <td>117.572000</td>\n",
+       "      <td>134.862500</td>\n",
+       "      <td>84.291000</td>\n",
+       "      <td>0.003460</td>\n",
+       "      <td>0.000020</td>\n",
+       "      <td>0.001660</td>\n",
+       "      <td>0.001860</td>\n",
+       "      <td>0.004985</td>\n",
+       "      <td>0.016505</td>\n",
+       "      <td>0.148500</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.024735</td>\n",
+       "      <td>0.005925</td>\n",
+       "      <td>19.198000</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.421306</td>\n",
+       "      <td>0.674758</td>\n",
+       "      <td>-6.450096</td>\n",
+       "      <td>0.174351</td>\n",
+       "      <td>2.099125</td>\n",
+       "      <td>0.137451</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>50%</th>\n",
+       "      <td>148.790000</td>\n",
+       "      <td>175.829000</td>\n",
+       "      <td>104.315000</td>\n",
+       "      <td>0.004940</td>\n",
+       "      <td>0.000030</td>\n",
+       "      <td>0.002500</td>\n",
+       "      <td>0.002690</td>\n",
+       "      <td>0.007490</td>\n",
+       "      <td>0.022970</td>\n",
+       "      <td>0.221000</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.038360</td>\n",
+       "      <td>0.011660</td>\n",
+       "      <td>22.085000</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.495954</td>\n",
+       "      <td>0.722254</td>\n",
+       "      <td>-5.720868</td>\n",
+       "      <td>0.218885</td>\n",
+       "      <td>2.361532</td>\n",
+       "      <td>0.194052</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>75%</th>\n",
+       "      <td>182.769000</td>\n",
+       "      <td>224.205500</td>\n",
+       "      <td>140.018500</td>\n",
+       "      <td>0.007365</td>\n",
+       "      <td>0.000060</td>\n",
+       "      <td>0.003835</td>\n",
+       "      <td>0.003955</td>\n",
+       "      <td>0.011505</td>\n",
+       "      <td>0.037885</td>\n",
+       "      <td>0.350000</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.060795</td>\n",
+       "      <td>0.025640</td>\n",
+       "      <td>25.075500</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.587562</td>\n",
+       "      <td>0.761881</td>\n",
+       "      <td>-5.046192</td>\n",
+       "      <td>0.279234</td>\n",
+       "      <td>2.636456</td>\n",
+       "      <td>0.252980</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>max</th>\n",
+       "      <td>260.105000</td>\n",
+       "      <td>592.030000</td>\n",
+       "      <td>239.170000</td>\n",
+       "      <td>0.033160</td>\n",
+       "      <td>0.000260</td>\n",
+       "      <td>0.021440</td>\n",
+       "      <td>0.019580</td>\n",
+       "      <td>0.064330</td>\n",
+       "      <td>0.119080</td>\n",
+       "      <td>1.302000</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.169420</td>\n",
+       "      <td>0.314820</td>\n",
+       "      <td>33.047000</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.685151</td>\n",
+       "      <td>0.825288</td>\n",
+       "      <td>-2.434031</td>\n",
+       "      <td>0.450493</td>\n",
+       "      <td>3.671155</td>\n",
+       "      <td>0.527367</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>8 rows × 23 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       MDVP:Fo(Hz)  MDVP:Fhi(Hz)  MDVP:Flo(Hz)  MDVP:Jitter(%)  \\\n",
+       "count   195.000000    195.000000    195.000000      195.000000   \n",
+       "mean    154.228641    197.104918    116.324631        0.006220   \n",
+       "std      41.390065     91.491548     43.521413        0.004848   \n",
+       "min      88.333000    102.145000     65.476000        0.001680   \n",
+       "25%     117.572000    134.862500     84.291000        0.003460   \n",
+       "50%     148.790000    175.829000    104.315000        0.004940   \n",
+       "75%     182.769000    224.205500    140.018500        0.007365   \n",
+       "max     260.105000    592.030000    239.170000        0.033160   \n",
+       "\n",
+       "       MDVP:Jitter(Abs)    MDVP:RAP    MDVP:PPQ  Jitter:DDP  MDVP:Shimmer  \\\n",
+       "count        195.000000  195.000000  195.000000  195.000000    195.000000   \n",
+       "mean           0.000044    0.003306    0.003446    0.009920      0.029709   \n",
+       "std            0.000035    0.002968    0.002759    0.008903      0.018857   \n",
+       "min            0.000007    0.000680    0.000920    0.002040      0.009540   \n",
+       "25%            0.000020    0.001660    0.001860    0.004985      0.016505   \n",
+       "50%            0.000030    0.002500    0.002690    0.007490      0.022970   \n",
+       "75%            0.000060    0.003835    0.003955    0.011505      0.037885   \n",
+       "max            0.000260    0.021440    0.019580    0.064330      0.119080   \n",
+       "\n",
+       "       MDVP:Shimmer(dB)  ...  Shimmer:DDA         NHR         HNR      status  \\\n",
+       "count        195.000000  ...   195.000000  195.000000  195.000000  195.000000   \n",
+       "mean           0.282251  ...     0.046993    0.024847   21.885974    0.753846   \n",
+       "std            0.194877  ...     0.030459    0.040418    4.425764    0.431878   \n",
+       "min            0.085000  ...     0.013640    0.000650    8.441000    0.000000   \n",
+       "25%            0.148500  ...     0.024735    0.005925   19.198000    1.000000   \n",
+       "50%            0.221000  ...     0.038360    0.011660   22.085000    1.000000   \n",
+       "75%            0.350000  ...     0.060795    0.025640   25.075500    1.000000   \n",
+       "max            1.302000  ...     0.169420    0.314820   33.047000    1.000000   \n",
+       "\n",
+       "             RPDE         DFA     spread1     spread2          D2         PPE  \n",
+       "count  195.000000  195.000000  195.000000  195.000000  195.000000  195.000000  \n",
+       "mean     0.498536    0.718099   -5.684397    0.226510    2.381826    0.206552  \n",
+       "std      0.103942    0.055336    1.090208    0.083406    0.382799    0.090119  \n",
+       "min      0.256570    0.574282   -7.964984    0.006274    1.423287    0.044539  \n",
+       "25%      0.421306    0.674758   -6.450096    0.174351    2.099125    0.137451  \n",
+       "50%      0.495954    0.722254   -5.720868    0.218885    2.361532    0.194052  \n",
+       "75%      0.587562    0.761881   -5.046192    0.279234    2.636456    0.252980  \n",
+       "max      0.685151    0.825288   -2.434031    0.450493    3.671155    0.527367  \n",
+       "\n",
+       "[8 rows x 23 columns]"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "print('Summary Statistics of numerical features for DataFrame are as follows:')\n",
+    "print('*'*70)\n",
+    "df.describe()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "b757fa93",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.614137Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.613713Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.624620Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.623426Z"
+    },
+    "papermill": {
+     "duration": 0.025502,
+     "end_time": "2024-07-03T17:36:56.627075",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.601573",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "status\n",
+       "1    147\n",
+       "0     48\n",
+       "Name: count, dtype: int64"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df['status'].value_counts() # status is target variable"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "53802095",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.649142Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.647933Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.655487Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.654287Z"
+    },
+    "papermill": {
+     "duration": 0.021686,
+     "end_time": "2024-07-03T17:36:56.658174",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.636488",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "#MODEL BUILDING\n",
+    "# separating the data and labels\n",
+    "X = df.drop(columns = ['name', 'status'], axis=1) # Feature matrix\n",
+    "y = df['status'] # Target variable"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "8da592d2",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.678060Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.677658Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.715647Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.714455Z"
+    },
+    "papermill": {
+     "duration": 0.051153,
+     "end_time": "2024-07-03T17:36:56.718538",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.667385",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>MDVP:Fo(Hz)</th>\n",
+       "      <th>MDVP:Fhi(Hz)</th>\n",
+       "      <th>MDVP:Flo(Hz)</th>\n",
+       "      <th>MDVP:Jitter(%)</th>\n",
+       "      <th>MDVP:Jitter(Abs)</th>\n",
+       "      <th>MDVP:RAP</th>\n",
+       "      <th>MDVP:PPQ</th>\n",
+       "      <th>Jitter:DDP</th>\n",
+       "      <th>MDVP:Shimmer</th>\n",
+       "      <th>MDVP:Shimmer(dB)</th>\n",
+       "      <th>...</th>\n",
+       "      <th>MDVP:APQ</th>\n",
+       "      <th>Shimmer:DDA</th>\n",
+       "      <th>NHR</th>\n",
+       "      <th>HNR</th>\n",
+       "      <th>RPDE</th>\n",
+       "      <th>DFA</th>\n",
+       "      <th>spread1</th>\n",
+       "      <th>spread2</th>\n",
+       "      <th>D2</th>\n",
+       "      <th>PPE</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>119.992</td>\n",
+       "      <td>157.302</td>\n",
+       "      <td>74.997</td>\n",
+       "      <td>0.00784</td>\n",
+       "      <td>0.00007</td>\n",
+       "      <td>0.00370</td>\n",
+       "      <td>0.00554</td>\n",
+       "      <td>0.01109</td>\n",
+       "      <td>0.04374</td>\n",
+       "      <td>0.426</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.02971</td>\n",
+       "      <td>0.06545</td>\n",
+       "      <td>0.02211</td>\n",
+       "      <td>21.033</td>\n",
+       "      <td>0.414783</td>\n",
+       "      <td>0.815285</td>\n",
+       "      <td>-4.813031</td>\n",
+       "      <td>0.266482</td>\n",
+       "      <td>2.301442</td>\n",
+       "      <td>0.284654</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>122.400</td>\n",
+       "      <td>148.650</td>\n",
+       "      <td>113.819</td>\n",
+       "      <td>0.00968</td>\n",
+       "      <td>0.00008</td>\n",
+       "      <td>0.00465</td>\n",
+       "      <td>0.00696</td>\n",
+       "      <td>0.01394</td>\n",
+       "      <td>0.06134</td>\n",
+       "      <td>0.626</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.04368</td>\n",
+       "      <td>0.09403</td>\n",
+       "      <td>0.01929</td>\n",
+       "      <td>19.085</td>\n",
+       "      <td>0.458359</td>\n",
+       "      <td>0.819521</td>\n",
+       "      <td>-4.075192</td>\n",
+       "      <td>0.335590</td>\n",
+       "      <td>2.486855</td>\n",
+       "      <td>0.368674</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>116.682</td>\n",
+       "      <td>131.111</td>\n",
+       "      <td>111.555</td>\n",
+       "      <td>0.01050</td>\n",
+       "      <td>0.00009</td>\n",
+       "      <td>0.00544</td>\n",
+       "      <td>0.00781</td>\n",
+       "      <td>0.01633</td>\n",
+       "      <td>0.05233</td>\n",
+       "      <td>0.482</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.03590</td>\n",
+       "      <td>0.08270</td>\n",
+       "      <td>0.01309</td>\n",
+       "      <td>20.651</td>\n",
+       "      <td>0.429895</td>\n",
+       "      <td>0.825288</td>\n",
+       "      <td>-4.443179</td>\n",
+       "      <td>0.311173</td>\n",
+       "      <td>2.342259</td>\n",
+       "      <td>0.332634</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>116.676</td>\n",
+       "      <td>137.871</td>\n",
+       "      <td>111.366</td>\n",
+       "      <td>0.00997</td>\n",
+       "      <td>0.00009</td>\n",
+       "      <td>0.00502</td>\n",
+       "      <td>0.00698</td>\n",
+       "      <td>0.01505</td>\n",
+       "      <td>0.05492</td>\n",
+       "      <td>0.517</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.03772</td>\n",
+       "      <td>0.08771</td>\n",
+       "      <td>0.01353</td>\n",
+       "      <td>20.644</td>\n",
+       "      <td>0.434969</td>\n",
+       "      <td>0.819235</td>\n",
+       "      <td>-4.117501</td>\n",
+       "      <td>0.334147</td>\n",
+       "      <td>2.405554</td>\n",
+       "      <td>0.368975</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>116.014</td>\n",
+       "      <td>141.781</td>\n",
+       "      <td>110.655</td>\n",
+       "      <td>0.01284</td>\n",
+       "      <td>0.00011</td>\n",
+       "      <td>0.00655</td>\n",
+       "      <td>0.00908</td>\n",
+       "      <td>0.01966</td>\n",
+       "      <td>0.06425</td>\n",
+       "      <td>0.584</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.04465</td>\n",
+       "      <td>0.10470</td>\n",
+       "      <td>0.01767</td>\n",
+       "      <td>19.649</td>\n",
+       "      <td>0.417356</td>\n",
+       "      <td>0.823484</td>\n",
+       "      <td>-3.747787</td>\n",
+       "      <td>0.234513</td>\n",
+       "      <td>2.332180</td>\n",
+       "      <td>0.410335</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>190</th>\n",
+       "      <td>174.188</td>\n",
+       "      <td>230.978</td>\n",
+       "      <td>94.261</td>\n",
+       "      <td>0.00459</td>\n",
+       "      <td>0.00003</td>\n",
+       "      <td>0.00263</td>\n",
+       "      <td>0.00259</td>\n",
+       "      <td>0.00790</td>\n",
+       "      <td>0.04087</td>\n",
+       "      <td>0.405</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.02745</td>\n",
+       "      <td>0.07008</td>\n",
+       "      <td>0.02764</td>\n",
+       "      <td>19.517</td>\n",
+       "      <td>0.448439</td>\n",
+       "      <td>0.657899</td>\n",
+       "      <td>-6.538586</td>\n",
+       "      <td>0.121952</td>\n",
+       "      <td>2.657476</td>\n",
+       "      <td>0.133050</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>191</th>\n",
+       "      <td>209.516</td>\n",
+       "      <td>253.017</td>\n",
+       "      <td>89.488</td>\n",
+       "      <td>0.00564</td>\n",
+       "      <td>0.00003</td>\n",
+       "      <td>0.00331</td>\n",
+       "      <td>0.00292</td>\n",
+       "      <td>0.00994</td>\n",
+       "      <td>0.02751</td>\n",
+       "      <td>0.263</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.01879</td>\n",
+       "      <td>0.04812</td>\n",
+       "      <td>0.01810</td>\n",
+       "      <td>19.147</td>\n",
+       "      <td>0.431674</td>\n",
+       "      <td>0.683244</td>\n",
+       "      <td>-6.195325</td>\n",
+       "      <td>0.129303</td>\n",
+       "      <td>2.784312</td>\n",
+       "      <td>0.168895</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>192</th>\n",
+       "      <td>174.688</td>\n",
+       "      <td>240.005</td>\n",
+       "      <td>74.287</td>\n",
+       "      <td>0.01360</td>\n",
+       "      <td>0.00008</td>\n",
+       "      <td>0.00624</td>\n",
+       "      <td>0.00564</td>\n",
+       "      <td>0.01873</td>\n",
+       "      <td>0.02308</td>\n",
+       "      <td>0.256</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.01667</td>\n",
+       "      <td>0.03804</td>\n",
+       "      <td>0.10715</td>\n",
+       "      <td>17.883</td>\n",
+       "      <td>0.407567</td>\n",
+       "      <td>0.655683</td>\n",
+       "      <td>-6.787197</td>\n",
+       "      <td>0.158453</td>\n",
+       "      <td>2.679772</td>\n",
+       "      <td>0.131728</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>193</th>\n",
+       "      <td>198.764</td>\n",
+       "      <td>396.961</td>\n",
+       "      <td>74.904</td>\n",
+       "      <td>0.00740</td>\n",
+       "      <td>0.00004</td>\n",
+       "      <td>0.00370</td>\n",
+       "      <td>0.00390</td>\n",
+       "      <td>0.01109</td>\n",
+       "      <td>0.02296</td>\n",
+       "      <td>0.241</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.01588</td>\n",
+       "      <td>0.03794</td>\n",
+       "      <td>0.07223</td>\n",
+       "      <td>19.020</td>\n",
+       "      <td>0.451221</td>\n",
+       "      <td>0.643956</td>\n",
+       "      <td>-6.744577</td>\n",
+       "      <td>0.207454</td>\n",
+       "      <td>2.138608</td>\n",
+       "      <td>0.123306</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>194</th>\n",
+       "      <td>214.289</td>\n",
+       "      <td>260.277</td>\n",
+       "      <td>77.973</td>\n",
+       "      <td>0.00567</td>\n",
+       "      <td>0.00003</td>\n",
+       "      <td>0.00295</td>\n",
+       "      <td>0.00317</td>\n",
+       "      <td>0.00885</td>\n",
+       "      <td>0.01884</td>\n",
+       "      <td>0.190</td>\n",
+       "      <td>...</td>\n",
+       "      <td>0.01373</td>\n",
+       "      <td>0.03078</td>\n",
+       "      <td>0.04398</td>\n",
+       "      <td>21.209</td>\n",
+       "      <td>0.462803</td>\n",
+       "      <td>0.664357</td>\n",
+       "      <td>-5.724056</td>\n",
+       "      <td>0.190667</td>\n",
+       "      <td>2.555477</td>\n",
+       "      <td>0.148569</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>195 rows × 22 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     MDVP:Fo(Hz)  MDVP:Fhi(Hz)  MDVP:Flo(Hz)  MDVP:Jitter(%)  \\\n",
+       "0        119.992       157.302        74.997         0.00784   \n",
+       "1        122.400       148.650       113.819         0.00968   \n",
+       "2        116.682       131.111       111.555         0.01050   \n",
+       "3        116.676       137.871       111.366         0.00997   \n",
+       "4        116.014       141.781       110.655         0.01284   \n",
+       "..           ...           ...           ...             ...   \n",
+       "190      174.188       230.978        94.261         0.00459   \n",
+       "191      209.516       253.017        89.488         0.00564   \n",
+       "192      174.688       240.005        74.287         0.01360   \n",
+       "193      198.764       396.961        74.904         0.00740   \n",
+       "194      214.289       260.277        77.973         0.00567   \n",
+       "\n",
+       "     MDVP:Jitter(Abs)  MDVP:RAP  MDVP:PPQ  Jitter:DDP  MDVP:Shimmer  \\\n",
+       "0             0.00007   0.00370   0.00554     0.01109       0.04374   \n",
+       "1             0.00008   0.00465   0.00696     0.01394       0.06134   \n",
+       "2             0.00009   0.00544   0.00781     0.01633       0.05233   \n",
+       "3             0.00009   0.00502   0.00698     0.01505       0.05492   \n",
+       "4             0.00011   0.00655   0.00908     0.01966       0.06425   \n",
+       "..                ...       ...       ...         ...           ...   \n",
+       "190           0.00003   0.00263   0.00259     0.00790       0.04087   \n",
+       "191           0.00003   0.00331   0.00292     0.00994       0.02751   \n",
+       "192           0.00008   0.00624   0.00564     0.01873       0.02308   \n",
+       "193           0.00004   0.00370   0.00390     0.01109       0.02296   \n",
+       "194           0.00003   0.00295   0.00317     0.00885       0.01884   \n",
+       "\n",
+       "     MDVP:Shimmer(dB)  ...  MDVP:APQ  Shimmer:DDA      NHR     HNR      RPDE  \\\n",
+       "0               0.426  ...   0.02971      0.06545  0.02211  21.033  0.414783   \n",
+       "1               0.626  ...   0.04368      0.09403  0.01929  19.085  0.458359   \n",
+       "2               0.482  ...   0.03590      0.08270  0.01309  20.651  0.429895   \n",
+       "3               0.517  ...   0.03772      0.08771  0.01353  20.644  0.434969   \n",
+       "4               0.584  ...   0.04465      0.10470  0.01767  19.649  0.417356   \n",
+       "..                ...  ...       ...          ...      ...     ...       ...   \n",
+       "190             0.405  ...   0.02745      0.07008  0.02764  19.517  0.448439   \n",
+       "191             0.263  ...   0.01879      0.04812  0.01810  19.147  0.431674   \n",
+       "192             0.256  ...   0.01667      0.03804  0.10715  17.883  0.407567   \n",
+       "193             0.241  ...   0.01588      0.03794  0.07223  19.020  0.451221   \n",
+       "194             0.190  ...   0.01373      0.03078  0.04398  21.209  0.462803   \n",
+       "\n",
+       "          DFA   spread1   spread2        D2       PPE  \n",
+       "0    0.815285 -4.813031  0.266482  2.301442  0.284654  \n",
+       "1    0.819521 -4.075192  0.335590  2.486855  0.368674  \n",
+       "2    0.825288 -4.443179  0.311173  2.342259  0.332634  \n",
+       "3    0.819235 -4.117501  0.334147  2.405554  0.368975  \n",
+       "4    0.823484 -3.747787  0.234513  2.332180  0.410335  \n",
+       "..        ...       ...       ...       ...       ...  \n",
+       "190  0.657899 -6.538586  0.121952  2.657476  0.133050  \n",
+       "191  0.683244 -6.195325  0.129303  2.784312  0.168895  \n",
+       "192  0.655683 -6.787197  0.158453  2.679772  0.131728  \n",
+       "193  0.643956 -6.744577  0.207454  2.138608  0.123306  \n",
+       "194  0.664357 -5.724056  0.190667  2.555477  0.148569  \n",
+       "\n",
+       "[195 rows x 22 columns]"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "64a93d0a",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.741261Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.740847Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.750399Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.749097Z"
+    },
+    "papermill": {
+     "duration": 0.023576,
+     "end_time": "2024-07-03T17:36:56.753094",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.729518",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0      1\n",
+       "1      1\n",
+       "2      1\n",
+       "3      1\n",
+       "4      1\n",
+       "      ..\n",
+       "190    0\n",
+       "191    0\n",
+       "192    0\n",
+       "193    0\n",
+       "194    0\n",
+       "Name: status, Length: 195, dtype: int64"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "696e824c",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.775004Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.774586Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.788581Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.787299Z"
+    },
+    "papermill": {
+     "duration": 0.027984,
+     "end_time": "2024-07-03T17:36:56.791215",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.763231",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: \"▸\";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: \"▾\";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: \"\";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: \"\";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: \"\";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id=\"sk-container-id-1\" class=\"sk-top-container\"><div class=\"sk-text-repr-fallback\"><pre>StandardScaler()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class=\"sk-container\" hidden><div class=\"sk-item\"><div class=\"sk-estimator sk-toggleable\"><input class=\"sk-toggleable__control sk-hidden--visually\" id=\"sk-estimator-id-1\" type=\"checkbox\" checked><label for=\"sk-estimator-id-1\" class=\"sk-toggleable__label sk-toggleable__label-arrow\">StandardScaler</label><div class=\"sk-toggleable__content\"><pre>StandardScaler()</pre></div></div></div></div></div>"
+      ],
+      "text/plain": [
+       "StandardScaler()"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# DATA STANDADIZATION\n",
+    "scaler = StandardScaler()\n",
+    "scaler.fit(X)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "f1ee37e0",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.813677Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.813274Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.824272Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.823131Z"
+    },
+    "papermill": {
+     "duration": 0.025219,
+     "end_time": "2024-07-03T17:36:56.826770",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.801551",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[-0.82929965, -0.43616456, -0.95203729, ...,  0.48047686,\n",
+       "        -0.21053082,  0.86888575],\n",
+       "       [-0.77097169, -0.53097409, -0.05772056, ...,  1.31118546,\n",
+       "         0.27507712,  1.80360503],\n",
+       "       [-0.90947638, -0.7231683 , -0.10987483, ...,  1.01768236,\n",
+       "        -0.10362861,  1.40266141],\n",
+       "       ...,\n",
+       "       [ 0.49557839,  0.47010361, -0.96839309, ..., -0.81807931,\n",
+       "         0.78033848, -0.83241014],\n",
+       "       [ 1.07876114,  2.19004398, -0.95417967, ..., -0.22906571,\n",
+       "        -0.63700298, -0.92610456],\n",
+       "       [ 1.45481664,  0.69224632, -0.88348115, ..., -0.43085284,\n",
+       "         0.45480231, -0.64505466]])"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "standardized_data = scaler.transform(X)\n",
+    "standardized_data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "d8dff9fa",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.850031Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.848932Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.857004Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.855866Z"
+    },
+    "papermill": {
+     "duration": 0.022335,
+     "end_time": "2024-07-03T17:36:56.859548",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.837213",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[-0.82929965, -0.43616456, -0.95203729, ...,  0.48047686,\n",
+       "        -0.21053082,  0.86888575],\n",
+       "       [-0.77097169, -0.53097409, -0.05772056, ...,  1.31118546,\n",
+       "         0.27507712,  1.80360503],\n",
+       "       [-0.90947638, -0.7231683 , -0.10987483, ...,  1.01768236,\n",
+       "        -0.10362861,  1.40266141],\n",
+       "       ...,\n",
+       "       [ 0.49557839,  0.47010361, -0.96839309, ..., -0.81807931,\n",
+       "         0.78033848, -0.83241014],\n",
+       "       [ 1.07876114,  2.19004398, -0.95417967, ..., -0.22906571,\n",
+       "        -0.63700298, -0.92610456],\n",
+       "       [ 1.45481664,  0.69224632, -0.88348115, ..., -0.43085284,\n",
+       "         0.45480231, -0.64505466]])"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X = standardized_data\n",
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "60010444",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.882983Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.881880Z",
+     "iopub.status.idle": "2024-07-03T17:36:56.895071Z",
+     "shell.execute_reply": "2024-07-03T17:36:56.893813Z"
+    },
+    "papermill": {
+     "duration": 0.027719,
+     "end_time": "2024-07-03T17:36:56.897742",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.870023",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(195, 22) (156, 22) (39, 22)\n",
+      "========================================\n",
+      "(195,) (156,) (39,)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# TRAIN TEST SPLIT\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "\n",
+    "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=45)\n",
+    "print(X.shape, X_train.shape, X_test.shape)\n",
+    "print('='*40)\n",
+    "print(y.shape, y_train.shape, y_test.shape)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "bb215929",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:56.922001Z",
+     "iopub.status.busy": "2024-07-03T17:36:56.921612Z",
+     "iopub.status.idle": "2024-07-03T17:36:57.224018Z",
+     "shell.execute_reply": "2024-07-03T17:36:57.222963Z"
+    },
+    "papermill": {
+     "duration": 0.31833,
+     "end_time": "2024-07-03T17:36:57.226897",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:56.908567",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# MODEL COMPARISON : TRAINING & EVALUATION\n",
+    "models = [LogisticRegression, SVC, DecisionTreeClassifier, RandomForestClassifier]\n",
+    "accuracy_scores = []\n",
+    "precision_scores = []\n",
+    "recall_scores = []\n",
+    "f1_scores = []\n",
+    "\n",
+    "for model in models:\n",
+    "    classifier = model().fit(X_train, y_train)\n",
+    "    y_pred = classifier.predict(X_test)\n",
+    "    \n",
+    "    accuracy_scores.append(accuracy_score(y_test, y_pred))\n",
+    "    precision_scores.append(precision_score(y_test, y_pred))\n",
+    "    recall_scores.append(recall_score(y_test, y_pred))\n",
+    "    f1_scores.append(f1_score(y_test, y_pred))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "9e9bd1d4",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-07-03T17:36:57.250812Z",
+     "iopub.status.busy": "2024-07-03T17:36:57.250373Z",
+     "iopub.status.idle": "2024-07-03T17:36:57.266136Z",
+     "shell.execute_reply": "2024-07-03T17:36:57.265033Z"
+    },
+    "papermill": {
+     "duration": 0.030558,
+     "end_time": "2024-07-03T17:36:57.268560",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:57.238002",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Accuracy</th>\n",
+       "      <th>Precision</th>\n",
+       "      <th>Recall</th>\n",
+       "      <th>F1 Score</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Model</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Logistic Regression</th>\n",
+       "      <td>0.871795</td>\n",
+       "      <td>0.852941</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.920635</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>SVM</th>\n",
+       "      <td>0.871795</td>\n",
+       "      <td>0.852941</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.920635</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Decision Tree</th>\n",
+       "      <td>0.846154</td>\n",
+       "      <td>0.870968</td>\n",
+       "      <td>0.931034</td>\n",
+       "      <td>0.900000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Random Forest</th>\n",
+       "      <td>0.923077</td>\n",
+       "      <td>0.906250</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.950820</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                     Accuracy  Precision    Recall  F1 Score\n",
+       "Model                                                       \n",
+       "Logistic Regression  0.871795   0.852941  1.000000  0.920635\n",
+       "SVM                  0.871795   0.852941  1.000000  0.920635\n",
+       "Decision Tree        0.846154   0.870968  0.931034  0.900000\n",
+       "Random Forest        0.923077   0.906250  1.000000  0.950820"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "classification_metrics_df = pd.DataFrame({\n",
+    "    \"Model\": [\"Logistic Regression\", \"SVM\", \"Decision Tree\", \"Random Forest\"],\n",
+    "    \"Accuracy\": accuracy_scores,\n",
+    "    \"Precision\": precision_scores,\n",
+    "    \"Recall\": recall_scores,\n",
+    "    \"F1 Score\": f1_scores\n",
+    "})\n",
+    "\n",
+    "classification_metrics_df.set_index('Model', inplace=True)\n",
+    "classification_metrics_df"
+   ]
+  },
+  {
+   "cell_type": "code",
    "execution_count": null,
-   "id": "5a2686c3",
+   "id": "8c11211b",
    "metadata": {
     "papermill": {
-     "duration": 0.007311,
-     "end_time": "2024-07-03T17:23:01.059173",
+     "duration": 0.011037,
+     "end_time": "2024-07-03T17:36:57.290500",
      "exception": false,
-     "start_time": "2024-07-03T17:23:01.051862",
+     "start_time": "2024-07-03T17:36:57.279463",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a96fe141",
+   "metadata": {
+    "papermill": {
+     "duration": 0.010586,
+     "end_time": "2024-07-03T17:36:57.312201",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:57.301615",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "INFERENCE\n",
+    "according to all model predictions **random forest** make \n",
+    "a accurate positive prediction\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9b60f8e6",
+   "metadata": {
+    "papermill": {
+     "duration": 0.010814,
+     "end_time": "2024-07-03T17:36:57.333958",
+     "exception": false,
+     "start_time": "2024-07-03T17:36:57.323144",
      "status": "completed"
     },
     "tags": []
@@ -729,14 +1887,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 7.708566,
-   "end_time": "2024-07-03T17:23:01.895694",
+   "duration": 7.743793,
+   "end_time": "2024-07-03T17:36:57.966685",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2024-07-03T17:22:54.187128",
+   "start_time": "2024-07-03T17:36:50.222892",
    "version": "2.5.0"
   }
  },
